@@ -2,7 +2,7 @@ const snippetUrls = {
   'node-drag': new URL('../language/examples/node-drag.interaction.xml', import.meta.url),
   'port-connect': new URL('../language/examples/port-connect.interaction.xml', import.meta.url),
   view: new URL('../language/examples/node-graph.view.xml', import.meta.url),
-  spec: new URL('../language/examples/node-graph.gizmo.xml', import.meta.url),
+  spec: new URL('../language/examples/node-graph.clamslam.xml', import.meta.url),
   probes: new URL('../language/examples/node-graph.dev.probes.xml', import.meta.url)
 };
 

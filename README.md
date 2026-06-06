@@ -1,8 +1,11 @@
 # Clam Slam v0.5
 
+![](logo.jpg)
+
 Clam Slam is an XML-first language prototype for complex agentic UI development with modern Web Components.
 
-This package is now arranged as a browser-first npm module instead of a one-file demo. The root `index.html` imports the demo application from `src/`, and the node-editor implementation is split into reusable source modules.
+
+This package is now arranged as a browser-first npm module instead of a one-file demo. The root `index.html` imports the demo application from `src/`, and the clamslam-node-editor implementation is split into reusable source modules.
 
 ## Run
 
@@ -24,10 +27,10 @@ Serving the directory is preferred because XML snippets are loaded from `src/lan
 ## Module Entry Points
 
 ```js
-import { defineNodeEditorElements } from './src/libraries/node-editor/index.js';
+import { defineNodeEditorElements } from './src/libraries/clamslam-node-editor/index.js';
 
 // or, as a package export after npm linking/publishing:
-import { defineNodeEditorElements } from 'gizmo-xml/node-editor';
+import { defineNodeEditorElements } from 'clamslam/clamslam-node-editor';
 ```
 
 Primary exports:
@@ -36,7 +39,7 @@ Primary exports:
 src/index.js                         package root
 src/core/index.js                    utility/core helpers
 src/runtime/index.js                 diagnostics and frame scheduling helpers
-src/libraries/node-editor/index.js   node-editor Web Components and luxury-tag boundary
+src/libraries/clamslam-node-editor/index.js   clamslam-node-editor Web Components and luxury-tag boundary
 ```
 
 ## v0.5 Highlight: Development Probes
@@ -67,7 +70,7 @@ src/
     frames.js
     index.js
   libraries/
-    node-editor/
+    clamslam-node-editor/
       constants.js
       index.js
       node-card.js
@@ -82,14 +85,14 @@ src/
       node-drag.interaction.xml
       port-connect.interaction.xml
       node-graph.view.xml
-      node-graph.gizmo.xml
+      node-graph.clamslam.xml
       node-graph.dev.probes.xml
 
 demos/node-graph/
   index.html
 
 docs/spec/
-  GIZMO_XML_V0_5.md
+  CLAM_SLAM_XML_V0_5.md
 
 docs/agent/
   SKILL.md

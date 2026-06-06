@@ -9,8 +9,8 @@
 
 ## v0.7
 
-- Publish `gizmo/core` and `gizmo/node-editor` package boundaries.
-- Add custom element registration from `.gizmo.xml` files.
+- Publish `clamslam/core` and `clamslam/clamslam-node-editor` package boundaries.
+- Add custom element registration from `.clamslam.xml` files.
 - Add source maps from generated JavaScript back to XML nodes.
 
 ## v1.0

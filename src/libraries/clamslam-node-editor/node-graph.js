@@ -660,7 +660,7 @@ export class FoxVeNodeGraph extends HTMLElement {
     this._probeEdgesMeetPortDots(pass, fail);
 
     this._lastProbeResults = results;
-    this.dispatchEvent(new CustomEvent('gizmo-probe-results', {
+    this.dispatchEvent(new CustomEvent('clamslam-probe-results', {
       bubbles: true,
       detail: { reason, results, failed: results.filter(item => !item.pass).length }
     }));

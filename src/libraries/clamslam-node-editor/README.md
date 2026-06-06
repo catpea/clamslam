@@ -1,11 +1,11 @@
-# gizmo/node-editor
+# clamslam/clamslam-node-editor
 
 Domain package for node-editor luxury tags.
 
 Conceptual XML exports:
 
 ```xml
-<use library="gizmo/node-editor"/>
+<use library="clamslam/clamslam-node-editor"/>
 
 <node/>
 <port/>

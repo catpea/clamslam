@@ -1,14 +1,14 @@
-# Gizmo XML v0.5 Specification Draft
+# Clam Slam XML v0.5 Specification Draft
 
-Gizmo XML is an XML-first language for authoring modern browser Web Components. It is not HTML, but its `<view>` may use XHTML-like DOM tags.
+Clam Slam XML is an XML-first language for authoring modern browser Web Components. It is not HTML, but its `<view>` may use XHTML-like DOM tags.
 
 ## Core Surfaces
 
 ```xml
-<gizmo name="Node Graph" tag="fox-ve-node-graph" css="./node-graph.css">
+<clamslam name="Node Graph" tag="fox-ve-node-graph" css="./node-graph.css">
   <about/>
   <terms/>
-  <use library="gizmo/node-editor"/>
+  <use library="clamslam/clamslam-node-editor"/>
   <types/>
   <props/>
   <state/>
@@ -21,7 +21,7 @@ Gizmo XML is an XML-first language for authoring modern browser Web Components. 
   <frames/>
   <dev/>
   <tests/>
-</gizmo>
+</clamslam>
 ```
 
 ## New in v0.5
@@ -79,11 +79,11 @@ Gizmo XML is an XML-first language for authoring modern browser Web Components. 
 ### Library boundary
 
 ```xml
-<use library="gizmo/node-editor"/>
+<use library="clamslam/clamslam-node-editor"/>
 <connect/>
 ```
 
-`<connect/>` belongs in `gizmo/node-editor`, not in the universal core. This keeps the browser core small while allowing domain-level luxury tags.
+`<connect/>` belongs in `clamslam/clamslam-node-editor`, not in the universal core. This keeps the browser core small while allowing domain-level luxury tags.
 
 ## Data Kinds
 
@@ -137,7 +137,7 @@ Low-level escape hatch:
 Node-editor package:
 
 ```xml
-<use library="gizmo/node-editor"/>
+<use library="clamslam/clamslam-node-editor"/>
 <node/>
 <port/>
 <edge/>

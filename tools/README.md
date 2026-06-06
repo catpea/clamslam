@@ -3,7 +3,7 @@
 Future commands:
 
 ```bash
-gizmo check src/**/*.gizmo.xml
-gizmo build src/**/*.gizmo.xml
-gizmo test test/fixtures/*.xml
+clamslam check src/**/*.clamslam.xml
+clamslam build src/**/*.clamslam.xml
+clamslam test test/fixtures/*.xml
 ```

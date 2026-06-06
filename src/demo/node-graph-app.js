@@ -1,4 +1,4 @@
-import { defineNodeEditorElements } from '../libraries/node-editor/index.js';
+import { defineNodeEditorElements } from '../libraries/clamslam-node-editor/index.js';
 import { createInitialGraph } from './demo-data.js';
 import { loadSnippet } from './demo-snippets.js';
 
@@ -25,9 +25,9 @@ function logEvent(name, detail) {
   graph.addEventListener(name, event => logEvent(name, event.detail));
 });
 
-graph.addEventListener('gizmo-probe-results', event => {
+graph.addEventListener('clamslam-probe-results', event => {
   renderProbeResults(event.detail);
-  if (event.detail.failed) logEvent('gizmo-probe-error', { failed: event.detail.failed, reason: event.detail.reason });
+  if (event.detail.failed) logEvent('clamslam-probe-error', { failed: event.detail.failed, reason: event.detail.reason });
 });
 
 function renderProbeResults({ reason, results, failed }) {

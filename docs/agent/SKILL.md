@@ -1,6 +1,6 @@
-# SKILL: Convert Complex Web Components to Gizmo XML
+# SKILL: Convert Complex Web Components to Clam Slam XML
 
-Use this skill when converting a complex JavaScript Web Component into Gizmo XML.
+Use this skill when converting a complex JavaScript Web Component into Clam Slam XML.
 
 ## Goal
 

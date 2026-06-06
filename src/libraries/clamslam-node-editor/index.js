@@ -4,7 +4,9 @@ import { FoxVeNodeGraph, defineNodeGraph } from './node-graph.js';
 export { FoxVeNodeCard, defineNodeCard } from './node-card.js';
 export { FoxVeNodeGraph, defineNodeGraph } from './node-graph.js';
 
-export function defineNodeEditorElements() {
+function defineNodeEditorElements() {
   defineNodeCard();
   defineNodeGraph();
 }
+
+export {defineNodeEditorElements}

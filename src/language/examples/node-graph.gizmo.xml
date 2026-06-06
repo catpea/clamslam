@@ -1,4 +1,4 @@
-<gizmo name="Node Graph" tag="fox-ve-node-graph" css="./node-graph.css">
+<clamslam name="Node Graph" tag="fox-ve-node-graph" css="./node-graph.css">
   <about>
     <summary>
       SVG-backed pan/zoom node editor for effects graphs.
@@ -39,4 +39,4 @@
       <effect name="draw-ghost"/>
     </frame>
   </frames>
-</gizmo>
+</clamslam>

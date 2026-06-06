@@ -10,7 +10,7 @@
     ".": "./src/index.js",
     "./core": "./src/core/index.js",
     "./runtime": "./src/runtime/index.js",
-    "./node-editor": "./src/libraries/node-editor/index.js"
+    "./clamslam-node-editor": "./src/libraries/clamslam-node-editor/index.js"
   },
   "files": [
     "src/",
@@ -22,7 +22,8 @@
   "scripts": {
     "dev": "http-server -c-1 -o",
     "demo": "http-server -c-1 -o",
-    "check": "node --check src/index.js && node --check src/demo/node-graph-app.js && node --check src/libraries/node-editor/node-graph.js && node --check src/libraries/node-editor/node-card.js"
+    "check": "node --check src/index.js && node --check src/demo/node-graph-app.js && node --check src/libraries/clamslam-node-editor/node-graph.js && node --check src/libraries/clamslam-node-editor/node-card.js",
+    "save": "git add .; git commit -m 'Updated Release'; npm version patch; npm publish; git push --follow-tags;"
   },
   "keywords": [
     "web-components",
@@ -30,8 +31,7 @@
     "dom",
     "ui",
     "agents",
-    "probes",
-    "node-editor"
+    "probes"
   ],
   "license": "MIT"
 }
