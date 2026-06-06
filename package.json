@@ -1,6 +1,6 @@
 {
   "name": "clamslam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "XML-first language for complex agentic Web Component UI development",
   "type": "module",
   "private": false,
