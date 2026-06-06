@@ -1,0 +1,37 @@
+{
+  "name": "clamslam",
+  "version": "1.0.0",
+  "description": "XML-first language for complex agentic Web Component UI development",
+  "type": "module",
+  "private": false,
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./core": "./src/core/index.js",
+    "./runtime": "./src/runtime/index.js",
+    "./node-editor": "./src/libraries/node-editor/index.js"
+  },
+  "files": [
+    "src/",
+    "docs/",
+    "demos/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "http-server -c-1 -o",
+    "demo": "http-server -c-1 -o",
+    "check": "node --check src/index.js && node --check src/demo/node-graph-app.js && node --check src/libraries/node-editor/node-graph.js && node --check src/libraries/node-editor/node-card.js"
+  },
+  "keywords": [
+    "web-components",
+    "xml",
+    "dom",
+    "ui",
+    "agents",
+    "probes",
+    "node-editor"
+  ],
+  "license": "MIT"
+}

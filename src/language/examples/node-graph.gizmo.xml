@@ -1,0 +1,42 @@
+<gizmo name="Node Graph" tag="fox-ve-node-graph" css="./node-graph.css">
+  <about>
+    <summary>
+      SVG-backed pan/zoom node editor for effects graphs.
+      Nodes are stored in world coordinates. The viewport applies pan and zoom.
+    </summary>
+  </about>
+
+  <types>
+    <type name="NodeGraphNode">
+      <prop name="id" kind="text"/>
+      <prop name="x" kind="number"/>
+      <prop name="y" kind="number"/>
+      <prop name="status" kind="choice" values="ok warning error disabled"/>
+      <prop name="inputs" kind="list" of="Port"/>
+      <prop name="outputs" kind="list" of="Port"/>
+    </type>
+  </types>
+
+  <props>
+    <prop name="zoom" kind="number" min="0.2" max="3" default="1" reflect="true"/>
+    <prop name="pan-x" field="panX" kind="number" default="0" reflect="true"/>
+    <prop name="pan-y" field="panY" kind="number" default="0" reflect="true"/>
+    <prop name="nodes" kind="list" of="NodeGraphNode" attr-format="json"/>
+    <prop name="edges" kind="list" of="NodeGraphEdge" attr-format="json"/>
+  </props>
+
+  <interactions>
+    <pan name="viewport-pan" from="viewport" button="middle or space-primary" target="view" x="panX" y="panY"/>
+    <zoom name="wheel-zoom" from="viewport" gesture="wheel" target="view" around="pointer" min="0.2" max="3"/>
+    <drag name="node-drag" from="nodeLayer" handle="fox-ve-node-card" space="world"/>
+    <connect name="port-connect" from="nodeLayer" handle=".fox-ve-node-card-port" space="viewport"/>
+    <resize target="self"><schedule frame="draw-edges"/></resize>
+  </interactions>
+
+  <frames>
+    <frame name="draw-edges" coalesce="true" settle="1">
+      <effect name="draw-edges"/>
+      <effect name="draw-ghost"/>
+    </frame>
+  </frames>
+</gizmo>

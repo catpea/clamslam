@@ -1,0 +1,42 @@
+<dev>
+  <probes>
+    <layout-probe name="collapse-button-alignment"
+                  subject=".fox-ve-node-card-expand"
+                  relation="center-y"
+                  target=".fox-ve-node-card-title"
+                  tolerance="2"
+                  severity="error">
+      Collapse button must be vertically centered with the node title.
+    </layout-probe>
+
+    <probe name="ghost-edge-clears"
+           select="fox-ve-node-graph"
+           when="after-interaction"
+           severity="error">
+      const ghost = one(".fox-ve-node-graph-ghost-edge");
+
+      if (!state.connection) {
+        expect(
+          ghost.hidden &amp;&amp; !ghost.getAttribute("d"),
+          "Ghost edge must be hidden and have no path when no connection is active.",
+          { hidden: ghost.hidden, d: ghost.getAttribute("d") }
+        );
+      }
+    </probe>
+
+    <layout-probe name="edge-start-port-center"
+                  subject="edge.start"
+                  relation="same-point"
+                  target="edge.from.port.dot.center"
+                  space="world"
+                  tolerance="2"
+                  severity="error">
+      <message>Cable starts must match output port dot centers.</message>
+      <hints>
+        <hint>Check whether SVG path points are in viewport or world space.</hint>
+        <hint>Prefer measured DOM port dot centers over header/row constants.</hint>
+        <hint>Schedule draw-edges after node-card render and one settle frame.</hint>
+      </hints>
+    </layout-probe>
+  </probes>
+</dev>

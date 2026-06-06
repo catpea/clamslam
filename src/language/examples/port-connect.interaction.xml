@@ -1,0 +1,51 @@
+<interaction name="port-connect">
+  <about>
+    <summary>
+      Creates an edge by dragging from one node port to another compatible port.
+      The ghost edge is viewport-space visual feedback and does not mutate edges.
+    </summary>
+  </about>
+
+  <contract>
+    <reads>
+      <state name="connection"/>
+      <state name="view"/>
+      <state name="nodes"/>
+      <prop name="readonly"/>
+    </reads>
+
+    <mutates>
+      <state name="connection"/>
+      <prop name="connection-mode"/>
+      <dom ref="ghost"/>
+    </mutates>
+
+    <emits>
+      <event name="fox-edge-connect"/>
+    </emits>
+
+    <forbids>
+      <mutation name="nodes"/>
+      <mutation name="edges"/>
+      <mutation name="selected"/>
+      <mutation name="view.panX"/>
+      <mutation name="view.panY"/>
+      <mutation name="view.zoom"/>
+    </forbids>
+  </contract>
+
+  <connect name="port-connect"
+           from="nodeLayer"
+           handle=".fox-ve-node-card-port"
+           start-event="fox-node-port-down"
+           end-event="fox-node-port-up"
+           mode-prop="connection-mode"
+           ghost="ghost"
+           space="viewport"
+           when="!readonly">
+    <start action="port-connect-start"/>
+    <move action="port-connect-move"/>
+    <end action="port-connect-end"/>
+    <finally action="port-connect-finally"/>
+  </connect>
+</interaction>

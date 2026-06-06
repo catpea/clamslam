@@ -1,0 +1,55 @@
+<interaction name="node-drag">
+  <contract>
+    <reads>
+      <state name="nodes"/>
+      <state name="selected"/>
+      <state name="view.zoom"/>
+      <prop name="readonly"/>
+      <prop name="snap-to-grid"/>
+      <prop name="grid-size"/>
+    </reads>
+
+    <mutates>
+      <state name="nodes"/>
+      <state name="selected"/>
+      <state name="nodeDrag"/>
+      <dom ref="nodeLayer"/>
+    </mutates>
+
+    <emits>
+      <event name="fox-node-select"/>
+      <event name="fox-node-move"/>
+    </emits>
+
+    <forbids>
+      <mutation name="edges"/>
+      <mutation name="view.panX"/>
+      <mutation name="view.panY"/>
+      <mutation name="view.zoom"/>
+    </forbids>
+  </contract>
+
+  <invariants>
+    <invariant name="world-coordinates">
+      Node positions are stored in world coordinates.
+    </invariant>
+    <invariant name="edge-redraw">
+      Every node position update schedules draw-edges.
+    </invariant>
+  </invariants>
+
+  <drag name="node-drag"
+        from="nodeLayer"
+        handle="fox-ve-node-card"
+        ignore=".fox-ve-node-card-port, button, input, textarea, select, [contenteditable]"
+        button="primary"
+        capture="true"
+        threshold="1"
+        space="world"
+        when="!readonly">
+    <start action="node-drag-start"/>
+    <move action="node-drag-move"/>
+    <end action="node-drag-end"/>
+    <cancel action="node-drag-cancel"/>
+  </drag>
+</interaction>

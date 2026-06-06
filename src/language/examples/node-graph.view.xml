@@ -1,0 +1,39 @@
+<view>
+  <div ref="viewport"
+       class="fox-ve-node-graph-viewport"
+       tabindex="0"
+       role="application"
+       aria-label="Node graph">
+
+    <svg ref="svg" class="fox-ve-node-graph-edges">
+      <g ref="edgeLayer"
+         class="fox-ve-node-graph-edge-layer"
+         svg.transform="translate({view.panX} {view.panY}) scale({view.zoom})">
+        <g each="edges as edge" key="{edge.id}" data-edge-id="{edge.id}">
+          <path class="fox-ve-node-graph-edge-hit" svg.d="{edgePath(edge)}"/>
+          <path class="fox-ve-node-graph-edge" svg.d="{edgePath(edge)}"/>
+        </g>
+      </g>
+      <path ref="ghost" class="fox-ve-node-graph-ghost-edge"
+            hidden="{!connection}" svg.d="{ghostEdgePath(connection)}"/>
+    </svg>
+
+    <div ref="nodeLayer"
+         class="fox-ve-node-graph-nodes"
+         style.transform="translate({view.panX}px, {view.panY}px) scale({view.zoom})"
+         on.fox-node-port-down="port-connect"
+         on.fox-node-port-up="port-connect">
+      <fox-ve-node-card each="nodes as node"
+                        key="{node.id}"
+                        data-id="{node.id}"
+                        node-label="{node.label}"
+                        color="{node.color}"
+                        status="{node.status}"
+                        selected="{selected includes node.id}"
+                        style.left="{node.x}px"
+                        style.top="{node.y}px"
+                        bind.inputs="{node.inputs}"
+                        bind.outputs="{node.outputs}"/>
+    </div>
+  </div>
+</view>

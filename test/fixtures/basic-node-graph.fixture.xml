@@ -1,0 +1,10 @@
+<fixture name="basic-node-graph">
+  <view panX="0" panY="0" zoom="1"/>
+  <nodes>
+    <node id="source" x="72" y="78"/>
+    <node id="grade" x="364" y="132"/>
+  </nodes>
+  <edges>
+    <edge id="edge-1" from.nodeId="source" from.portId="rgba" to.nodeId="grade" to.portId="in"/>
+  </edges>
+</fixture>
